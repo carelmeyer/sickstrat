@@ -26,7 +26,7 @@ export function Hero() {
           className="w-full max-w-[80vw] md:max-w-[60vw] lg:max-w-[50vw]"
         />
         <p className="max-w-md text-center text-lg leading-relaxed text-muted-foreground md:text-xl">
-          {"Product & engineering consulting for teams building what's next."}
+          {"Building what's next. Shipping what matters."}
         </p>
       </div>
     </section>

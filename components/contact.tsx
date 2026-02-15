@@ -1,7 +1,21 @@
+"use client"
+
+import { useMemo } from "react"
 import { AnimatedSection } from "@/components/animated-section"
 import { Mail } from "lucide-react"
 
+function useEmail() {
+  return useMemo(() => {
+    const user = "hello"
+    const domain = "sickstrat"
+    const tld = "com"
+    return `${user}@${domain}.${tld}`
+  }, [])
+}
+
 export function Contact() {
+  const email = useEmail()
+
   return (
     <div className="mx-auto max-w-4xl px-6 py-32 pb-48">
       <AnimatedSection>
@@ -16,11 +30,11 @@ export function Contact() {
       </AnimatedSection>
       <AnimatedSection delay={200}>
         <a
-          href="mailto:hello@sickstrat.com"
+          href={`mailto:${email}`}
           className="group inline-flex items-center gap-3 border-b border-muted-foreground/30 pb-1 text-lg text-foreground transition-colors hover:border-foreground"
         >
           <Mail className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-foreground" />
-          hello@sickstrat.com
+          {email}
         </a>
       </AnimatedSection>
     </div>
