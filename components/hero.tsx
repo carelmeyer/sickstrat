@@ -18,7 +18,7 @@ export function Hero() {
         }`}
       >
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sickstrat-logo-glitched-uqTDYVsFosVgX1t541NAS7Ku6NPLIp.webp"
+          src="/sickstrat-logo-glitched.webp"
           alt="sickstrat logo"
           width={800}
           height={800}
