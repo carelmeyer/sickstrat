@@ -2,24 +2,34 @@ import { AnimatedSection } from "@/components/animated-section"
 
 const services = [
   {
+    title: "Research & Prototyping",
+    description:
+      "Deep research, fast answers. We explore the problem space, test the assumptions, and deliver a working prototype — not a report.",
+  },
+  {
     title: "Product Strategy",
     description:
-      "No fluff roadmaps. We define the what and why for AI-native products — then cut everything else.",
+      "We kill the noise. Sharp product vision for AI-native and agentic builds — what to ship, what to automate, what to cut. No roadmap theater.",
   },
   {
     title: "Technical Architecture",
     description:
-      "System design that holds under pressure. LLM orchestration, data pipelines, infra decisions you won't have to undo.",
-  },
-  {
-    title: "Fractional Leadership",
-    description:
-      "Fractional leadership across product and engineering — whatever the run demands, from strategy down to the codebase.",
+      "Built to take impact. Agentic systems, LLM orchestration, data pipelines, infra calls you can bet on. We design systems that don't flinch — and agents that don't hallucinate.",
   },
   {
     title: "AI Integration",
     description:
-      "AI into your existing stack without torching what works. Production-grade. No science projects.",
+      "AI and agentic automation into your existing stack without burning it down. No rewrites, no science fairs. Production-grade, battle-tested, shipped.",
+  },
+  {
+    title: "Full Build",
+    description:
+      "Hand us the problem, we'll hand you the product. From agentic workflows to full platforms — strategy, design, engineering, deployment. End to end, no babysitting required.",
+  },
+  {
+    title: "Fractional Leadership",
+    description:
+      "Fractional leadership across product and engineering — 25+ years deep, scoped to the challenge, from strategy down to the codebase.",
   },
 ]
 

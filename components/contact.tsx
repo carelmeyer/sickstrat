@@ -25,7 +25,7 @@ export function Contact() {
       </AnimatedSection>
       <AnimatedSection delay={100}>
         <p className="mb-10 text-3xl font-medium text-foreground md:text-4xl">
-          Ready when you are.
+          Ready to move? So are we.
         </p>
       </AnimatedSection>
       <AnimatedSection delay={200}>

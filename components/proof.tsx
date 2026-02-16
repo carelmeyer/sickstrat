@@ -1,9 +1,10 @@
 import { AnimatedSection } from "@/components/animated-section"
 
 const signals = [
-  "25+ years shipping product at speed.",
-  "AI-native since GPT-2.",
-  "Startups, scale-ups, Fortune 500 — all the terrain.",
+  "25+ years shipping product at full send.",
+  "AI-native since GPT-2. Agentic since day one.",
+  "Startups. Scale-ups. Fortune 500. Every gradient.",
+  "We've seen the hype cycles come and go. We build what lasts.",
 ]
 
 export function Proof() {
