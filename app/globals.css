@@ -45,6 +45,77 @@
   }
 }
 
+/* Text selection — channel-split highlight instead of browser blue */
+::selection {
+  background: hsl(180 100% 70% / 0.25);
+  color: hsl(0 0% 100%);
+}
+
+/* Terminal idle cursor */
+.cursor-blink {
+  display: inline-block;
+  animation: cursor-blink 1.1s steps(1) infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* Hover-triggered glitch — same language as .glitch, but only while hovered */
+.glitch-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-hover::before,
+.glitch-hover::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.glitch-hover::before {
+  color: hsl(180 100% 70% / 0.8);
+}
+
+.glitch-hover::after {
+  color: hsl(0 100% 70% / 0.8);
+}
+
+.glitch-hover:hover::before {
+  opacity: 1;
+  animation: glitch-hover-cyan 0.6s steps(1) infinite;
+}
+
+.glitch-hover:hover::after {
+  opacity: 1;
+  animation: glitch-hover-red 0.6s steps(1) infinite;
+}
+
+@keyframes glitch-hover-cyan {
+  0%   { clip-path: inset(20% 0 55% 0); transform: translate(-2px, 0); }
+  20%  { clip-path: inset(60% 0 15% 0); transform: translate(-3px, 0); }
+  40%  { clip-path: inset(5% 0 75% 0);  transform: translate(-1px, 0); }
+  60%  { clip-path: inset(45% 0 30% 0); transform: translate(-3px, 0); }
+  80%  { clip-path: inset(70% 0 5% 0);  transform: translate(-2px, 0); }
+  100% { clip-path: inset(20% 0 55% 0); transform: translate(-2px, 0); }
+}
+
+@keyframes glitch-hover-red {
+  0%   { clip-path: inset(55% 0 20% 0); transform: translate(2px, 0); }
+  20%  { clip-path: inset(10% 0 65% 0); transform: translate(3px, 0); }
+  40%  { clip-path: inset(70% 0 10% 0); transform: translate(1px, 0); }
+  60%  { clip-path: inset(25% 0 50% 0); transform: translate(3px, 0); }
+  80%  { clip-path: inset(0 0 70% 0);   transform: translate(2px, 0); }
+  100% { clip-path: inset(55% 0 20% 0); transform: translate(2px, 0); }
+}
+
 /* Glitch effect for section titles */
 .glitch {
   position: relative;
@@ -210,12 +281,18 @@
 
 @media (prefers-reduced-motion: reduce) {
   .aberration-blob,
-  .grain {
+  .grain,
+  .cursor-blink {
     animation: none;
   }
   .scanline,
   .tear {
     display: none;
+  }
+  .glitch-hover:hover::before,
+  .glitch-hover:hover::after {
+    animation: none;
+    opacity: 0;
   }
 }
 

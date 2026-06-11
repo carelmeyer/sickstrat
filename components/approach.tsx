@@ -4,8 +4,8 @@ export function Approach() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-32">
       <AnimatedSection>
-        <h2 className="glitch mb-16 text-sm font-medium uppercase tracking-widest text-muted-foreground" data-text="How We Work">
-          How We Work
+        <h2 className="glitch mb-16 font-mono text-sm font-medium uppercase tracking-widest text-muted-foreground" data-text="02 — How We Work">
+          02 — How We Work
         </h2>
       </AnimatedSection>
       <AnimatedSection delay={100}>

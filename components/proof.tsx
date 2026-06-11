@@ -11,8 +11,8 @@ export function Proof() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-32">
       <AnimatedSection>
-        <h2 className="glitch mb-16 text-sm font-medium uppercase tracking-widest text-muted-foreground" data-text="Signal">
-          Signal
+        <h2 className="glitch mb-16 font-mono text-sm font-medium uppercase tracking-widest text-muted-foreground" data-text="03 — Signal">
+          03 — Signal
         </h2>
       </AnimatedSection>
       <div className="flex flex-col gap-6">
@@ -20,7 +20,7 @@ export function Proof() {
           <AnimatedSection key={signal} delay={i * 100}>
             <div className="flex items-center gap-4">
               <span className="h-px w-6 bg-muted-foreground" />
-              <p className="text-lg text-foreground">{signal}</p>
+              <p className="font-mono text-base text-foreground">{signal}</p>
             </div>
           </AnimatedSection>
         ))}

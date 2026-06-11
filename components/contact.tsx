@@ -17,10 +17,10 @@ export function Contact() {
   const email = useEmail()
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-32 pb-48">
+    <div className="mx-auto max-w-4xl px-6 py-32">
       <AnimatedSection>
-        <h2 className="glitch mb-16 text-sm font-medium uppercase tracking-widest text-muted-foreground" data-text="Contact">
-          Contact
+        <h2 className="glitch mb-16 font-mono text-sm font-medium uppercase tracking-widest text-muted-foreground" data-text="04 — Contact">
+          04 — Contact
         </h2>
       </AnimatedSection>
       <AnimatedSection delay={100}>
@@ -31,7 +31,7 @@ export function Contact() {
       <AnimatedSection delay={200}>
         <a
           href={`mailto:${email}`}
-          className="group inline-flex items-center gap-3 border-b border-muted-foreground/30 pb-1 text-lg text-foreground transition-colors hover:border-foreground"
+          className="group inline-flex items-center gap-3 border-b border-muted-foreground/30 pb-1 font-mono text-base text-foreground transition-colors hover:border-foreground"
         >
           <Mail className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-foreground" />
           {email}

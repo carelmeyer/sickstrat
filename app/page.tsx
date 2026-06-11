@@ -3,27 +3,23 @@ import { Services } from "@/components/services"
 import { Approach } from "@/components/approach"
 import { Proof } from "@/components/proof"
 import { Contact } from "@/components/contact"
+import { Footer } from "@/components/footer"
+import { SignalDivider } from "@/components/signal-divider"
 
 export default function Page() {
   return (
     <main>
       <Hero />
-      <div className="mx-auto w-full max-w-5xl">
-        <hr className="border-border" />
-      </div>
+      <SignalDivider offset="22%" />
       <Services />
-      <div className="mx-auto w-full max-w-5xl">
-        <hr className="border-border" />
-      </div>
+      <SignalDivider offset="63%" />
       <Approach />
-      <div className="mx-auto w-full max-w-5xl">
-        <hr className="border-border" />
-      </div>
+      <SignalDivider offset="38%" />
       <Proof />
-      <div className="mx-auto w-full max-w-5xl">
-        <hr className="border-border" />
-      </div>
+      <SignalDivider offset="76%" />
       <Contact />
+      <SignalDivider offset="30%" />
+      <Footer />
     </main>
   )
 }

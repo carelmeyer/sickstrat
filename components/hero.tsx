@@ -25,8 +25,9 @@ export function Hero() {
           priority
           className="w-full max-w-[80vw] md:max-w-[60vw] lg:max-w-[50vw]"
         />
-        <p className="glitch max-w-md text-center text-lg leading-relaxed text-muted-foreground md:text-xl" data-text="Building what's next. Shipping what matters.">
-          {"Building what's next. Shipping what matters."}
+        <p className="glitch max-w-md text-center text-lg leading-relaxed text-muted-foreground md:text-xl" data-text="Building what's next. Shipping what matters. ▌">
+          {"Building what's next. Shipping what matters. "}
+          <span className="cursor-blink" aria-hidden>▌</span>
         </p>
       </div>
     </section>
