@@ -4,32 +4,32 @@ const services = [
   {
     title: "Research & Prototyping",
     description:
-      "Deep research, fast answers. We explore the problem space, test the assumptions, and deliver a working prototype — not a report.",
+      "Map the territory. Test the assumptions. Deliver a working prototype, not a report.",
   },
   {
     title: "Product Strategy",
     description:
-      "We kill the noise. Sharp product vision for AI-native and agentic builds — what to ship, what to automate, what to cut. No roadmap theater.",
+      "Kill the noise. What to ship, what to automate, what to cut. No roadmap theater.",
   },
   {
     title: "Technical Architecture",
     description:
-      "Built to take impact. Agentic systems, LLM orchestration, data pipelines, infra calls you can bet on. We design systems that don't flinch — and agents that don't hallucinate.",
+      "Systems that don't flinch. Agents that don't hallucinate. Risk encoded as a gate, not buried in a report.",
   },
   {
     title: "AI Integration",
     description:
-      "AI and agentic automation into your existing stack without burning it down. No rewrites, no science fairs. Production-grade, battle-tested, shipped.",
+      "Into your existing stack without burning it down. No rewrites, no science fairs. Production-grade, battle-tested, shipped.",
   },
   {
     title: "Full Build",
     description:
-      "Hand us the problem, we'll hand you the product. From agentic workflows to full platforms — strategy, design, engineering, deployment. End to end, no babysitting required.",
+      "Hand us the problem, we'll hand you the product. End to end, no babysitting required.",
   },
   {
     title: "Fractional Leadership",
     description:
-      "Fractional leadership across product and engineering — 25+ years deep, scoped to the challenge, from strategy down to the codebase.",
+      "Product and engineering. 25+ years deep. From strategy down to the codebase. One discipline, not two.",
   },
 ]
 
@@ -37,7 +37,7 @@ export function Services() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-32">
       <AnimatedSection>
-        <h2 className="mb-16 text-sm font-medium uppercase tracking-widest text-muted-foreground">
+        <h2 className="glitch mb-16 text-sm font-medium uppercase tracking-widest text-muted-foreground" data-text="What We Do">
           What We Do
         </h2>
       </AnimatedSection>

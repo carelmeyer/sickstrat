@@ -4,14 +4,14 @@ const signals = [
   "25+ years shipping product at full send.",
   "AI-native since GPT-2. Agentic since day one.",
   "Startups. Scale-ups. Fortune 500. Every gradient.",
-  "We've seen the hype cycles come and go. We build what lasts.",
+  "We build what lasts.",
 ]
 
 export function Proof() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-32">
       <AnimatedSection>
-        <h2 className="mb-16 text-sm font-medium uppercase tracking-widest text-muted-foreground">
+        <h2 className="glitch mb-16 text-sm font-medium uppercase tracking-widest text-muted-foreground" data-text="Signal">
           Signal
         </h2>
       </AnimatedSection>

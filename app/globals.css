@@ -44,3 +44,197 @@
     scroll-behavior: smooth;
   }
 }
+
+/* Glitch effect for section titles */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  clip-path: inset(0 0 100% 0);
+}
+
+.glitch::before {
+  color: hsl(180 100% 70% / 0.8);
+  animation: glitch-cyan 3s infinite;
+}
+
+.glitch::after {
+  color: hsl(0 100% 70% / 0.8);
+  animation: glitch-red 3s infinite;
+}
+
+@keyframes glitch-cyan {
+  /* normal */
+  0%, 55%    { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  /* slow glitch */
+  58%        { clip-path: inset(10% 0 50% 0); transform: translate(-2px, 0); }
+  62%        { clip-path: inset(55% 0 10% 0); transform: translate(-3px, 0); }
+  66%        { clip-path: inset(0 0 70% 0);   transform: translate(-1px, 0); }
+  /* normal */
+  69%, 88%   { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  /* fast glitch */
+  89%        { clip-path: inset(40% 0 20% 0); transform: translate(-3px, 0); }
+  89.8%      { clip-path: inset(5% 0 65% 0);  transform: translate(-2px, 0); }
+  90.6%      { clip-path: inset(70% 0 5% 0);  transform: translate(-4px, 0); }
+  91.4%      { clip-path: inset(20% 0 40% 0); transform: translate(-2px, 0); }
+  92.2%      { clip-path: inset(60% 0 15% 0); transform: translate(-3px, 0); }
+  93%        { clip-path: inset(0 0 80% 0);   transform: translate(-1px, 0); }
+  /* normal */
+  95%, 100%  { clip-path: inset(0 0 100% 0); transform: translate(0); }
+}
+
+/* ---------------------------------------------------------------- */
+/* Ambient backdrop                                                  */
+/* ---------------------------------------------------------------- */
+
+/* Chromatic aberration field — two huge, dim channel-split blobs
+   drifting at opposite corners. Hues match the .glitch keyframes. */
+.aberration-blob {
+  position: absolute;
+  width: 90vmax;
+  height: 90vmax;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+.aberration-cyan {
+  top: -35vmax;
+  left: -25vmax;
+  background: radial-gradient(circle, hsl(180 100% 70% / 0.2), transparent 65%);
+  animation: drift-cyan 45s ease-in-out infinite;
+}
+
+.aberration-red {
+  bottom: -35vmax;
+  right: -25vmax;
+  background: radial-gradient(circle, hsl(0 100% 70% / 0.17), transparent 65%);
+  animation: drift-red 55s ease-in-out infinite;
+}
+
+@keyframes drift-cyan {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(28vw, 22vh) scale(1.25); }
+  66%      { transform: translate(8vw, 42vh) scale(0.9); }
+}
+
+@keyframes drift-red {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(-24vw, -32vh) scale(1.2); }
+  66%      { transform: translate(-40vw, -10vh) scale(0.95); }
+}
+
+/* Film grain — tiled SVG noise, jittered in coarse steps */
+.grain {
+  position: absolute;
+  inset: -50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  opacity: 0.09;
+  will-change: transform;
+  animation: grain-shift 0.9s steps(1) infinite;
+}
+
+@keyframes grain-shift {
+  0%   { transform: translate(0, 0); }
+  12%  { transform: translate(-3%, 2%); }
+  25%  { transform: translate(2%, -4%); }
+  37%  { transform: translate(-4%, -2%); }
+  50%  { transform: translate(3%, 4%); }
+  62%  { transform: translate(-2%, 3%); }
+  75%  { transform: translate(4%, -3%); }
+  87%  { transform: translate(-3%, -4%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Scanline — a faint band that sweeps down the feed, then goes dark */
+.scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -8rem;
+  height: 8rem;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    hsl(0 0% 100% / 0.05) 30%,
+    hsl(180 100% 70% / 0.12) 48%,
+    hsl(0 100% 70% / 0.09) 52%,
+    hsl(0 0% 100% / 0.05) 70%,
+    transparent
+  );
+  animation: scan 10s linear infinite;
+}
+
+@keyframes scan {
+  0%        { transform: translateY(0); opacity: 1; }
+  16%       { transform: translateY(calc(100vh + 8rem)); opacity: 1; }
+  16.01%, 100% { transform: translateY(0); opacity: 0; }
+}
+
+/* Signal tear — rare 1-frame horizontal rips with channel split,
+   long calm / short violence, same rhythm as the heading glitch */
+.tear {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  opacity: 0;
+  background: linear-gradient(
+    to right,
+    hsl(180 100% 70% / 0.75),
+    transparent 35%,
+    transparent 65%,
+    hsl(0 100% 70% / 0.75)
+  );
+  animation: tear 9s steps(1) infinite;
+}
+
+@keyframes tear {
+  0%    { opacity: 0; top: 24%; }
+  61%   { opacity: 1; top: 24%; }
+  61.8% { opacity: 0; top: 24%; }
+  84%   { opacity: 1; top: 67%; }
+  84.6% { opacity: 0; top: 67%; }
+  100%  { opacity: 0; top: 67%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aberration-blob,
+  .grain {
+    animation: none;
+  }
+  .scanline,
+  .tear {
+    display: none;
+  }
+}
+
+@keyframes glitch-red {
+  /* normal */
+  0%, 55%    { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  /* slow glitch */
+  58%        { clip-path: inset(50% 0 15% 0); transform: translate(2px, 0); }
+  62%        { clip-path: inset(5% 0 60% 0);  transform: translate(3px, 0); }
+  66%        { clip-path: inset(65% 0 0 0);   transform: translate(1px, 0); }
+  /* normal */
+  69%, 88%   { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  /* fast glitch */
+  89%        { clip-path: inset(15% 0 45% 0); transform: translate(3px, 0); }
+  89.8%      { clip-path: inset(60% 0 10% 0); transform: translate(2px, 0); }
+  90.6%      { clip-path: inset(0 0 55% 0);   transform: translate(4px, 0); }
+  91.4%      { clip-path: inset(45% 0 25% 0); transform: translate(2px, 0); }
+  92.2%      { clip-path: inset(10% 0 60% 0); transform: translate(3px, 0); }
+  93%        { clip-path: inset(75% 0 0 0);   transform: translate(1px, 0); }
+  /* normal */
+  95%, 100%  { clip-path: inset(0 0 100% 0); transform: translate(0); }
+}

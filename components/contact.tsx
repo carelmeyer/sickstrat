@@ -19,7 +19,7 @@ export function Contact() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-32 pb-48">
       <AnimatedSection>
-        <h2 className="mb-16 text-sm font-medium uppercase tracking-widest text-muted-foreground">
+        <h2 className="glitch mb-16 text-sm font-medium uppercase tracking-widest text-muted-foreground" data-text="Contact">
           Contact
         </h2>
       </AnimatedSection>
