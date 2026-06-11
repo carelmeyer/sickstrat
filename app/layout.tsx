@@ -10,8 +10,19 @@ const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://sickstrat.com'),
   title: 'sickstrat — Product & Engineering Consulting',
   description: 'Product & engineering consulting for teams building with AI. Strategy, architecture, and execution.',
+  openGraph: {
+    title: 'sickstrat — Product & Engineering Consulting',
+    description: 'Product & engineering consulting for teams building with AI. Strategy, architecture, and execution.',
+    url: 'https://sickstrat.com',
+    siteName: 'sickstrat',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
 }
 
 export const viewport: Viewport = {
