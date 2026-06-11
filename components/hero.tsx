@@ -13,8 +13,10 @@ export function Hero() {
   return (
     <section className="flex min-h-screen flex-col items-center justify-center px-6">
       <div
-        className={`flex flex-col items-center gap-10 transition-all duration-1000 ease-out ${
-          loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        className={`flex flex-col items-center gap-10 transition-all duration-1000 ease-out motion-reduce:transition-none ${
+          loaded
+            ? "is-visible opacity-100 translate-y-0"
+            : "opacity-0 translate-y-6 motion-reduce:translate-y-0 motion-reduce:opacity-100"
         }`}
       >
         <Image
@@ -23,7 +25,7 @@ export function Hero() {
           width={800}
           height={800}
           priority
-          className="w-full max-w-[80vw] md:max-w-[60vw] lg:max-w-[50vw]"
+          className="glitch-burst w-full max-w-[80vw] md:max-w-[60vw] lg:max-w-[50vw]"
         />
         <p className="glitch max-w-md text-center text-lg leading-relaxed text-muted-foreground md:text-xl" data-text="Building what's next. Shipping what matters. ▌">
           {"Building what's next. Shipping what matters. "}

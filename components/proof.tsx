@@ -1,4 +1,5 @@
 import { AnimatedSection } from "@/components/animated-section"
+import { SignalLog } from "@/components/signal-log"
 
 const signals = [
   "25+ years shipping product at full send.",
@@ -10,20 +11,17 @@ const signals = [
 export function Proof() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-32">
-      <AnimatedSection>
-        <h2 className="glitch mb-16 font-mono text-sm font-medium uppercase tracking-widest text-muted-foreground" data-text="03 — Signal">
-          03 — Signal
-        </h2>
-      </AnimatedSection>
-      <div className="flex flex-col gap-6">
-        {signals.map((signal, i) => (
-          <AnimatedSection key={signal} delay={i * 100}>
-            <div className="flex items-center gap-4">
-              <span className="h-px w-6 bg-muted-foreground" />
-              <p className="font-mono text-base text-foreground">{signal}</p>
-            </div>
-          </AnimatedSection>
-        ))}
+      <div className="md:grid md:grid-cols-[200px_1fr] md:gap-12">
+        <div>
+          <div className="md:sticky md:top-32">
+            <AnimatedSection>
+              <h2 className="glitch mb-16 font-mono text-sm font-medium uppercase tracking-widest text-muted-foreground md:mb-0" data-text="03 — Signal">
+                03 — Signal
+              </h2>
+            </AnimatedSection>
+          </div>
+        </div>
+        <SignalLog lines={signals} />
       </div>
     </div>
   )

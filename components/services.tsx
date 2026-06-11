@@ -36,24 +36,33 @@ const services = [
 export function Services() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-32">
-      <AnimatedSection>
-        <h2 className="glitch mb-16 font-mono text-sm font-medium uppercase tracking-widest text-muted-foreground" data-text="01 — What We Do">
-          01 — What We Do
-        </h2>
-      </AnimatedSection>
-      <div className="grid gap-12 md:grid-cols-2">
-        {services.map((service, i) => (
-          <AnimatedSection key={service.title} delay={i * 100}>
-            <div className="group">
-              <h3 className="glitch-hover mb-3 text-xl font-medium text-foreground" data-text={service.title}>
-                {service.title}
-              </h3>
-              <p className="leading-relaxed text-muted-foreground">
-                {service.description}
-              </p>
-            </div>
-          </AnimatedSection>
-        ))}
+      <div className="md:grid md:grid-cols-[200px_1fr] md:gap-12">
+        <div>
+          <div className="md:sticky md:top-32">
+            <AnimatedSection>
+              <h2 className="glitch mb-16 font-mono text-sm font-medium uppercase tracking-widest text-muted-foreground md:mb-0" data-text="01 — What We Do">
+                01 — What We Do
+              </h2>
+            </AnimatedSection>
+          </div>
+        </div>
+        <div className="grid gap-12 md:grid-cols-2">
+          {services.map((service, i) => (
+            <AnimatedSection key={service.title} delay={i * 100}>
+              <div className="group">
+                <span className="mb-2 block font-mono text-xs text-muted-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="glitch-hover mb-3 text-xl font-medium text-foreground" data-text={service.title}>
+                  {service.title}
+                </h3>
+                <p className="leading-relaxed text-muted-foreground">
+                  {service.description}
+                </p>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
       </div>
     </div>
   )
